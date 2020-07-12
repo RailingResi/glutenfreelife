@@ -32,6 +32,41 @@
                     ]
                 },
                 {
+                    "name": "RecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "I want to cook by myself",
+                        "I want to cook"
+                    ]
+                },
+                {
+                    "name": "FishIntent",
+                    "slots": [],
+                    "samples": [
+                        "Fish",
+                        "I want fish as main course ingredient",
+                        "I want fish"
+                    ]
+                },
+                {
+                    "name": "MeatIntent",
+                    "slots": [],
+                    "samples": [
+                        "Meat",
+                        "I want meat as main course ingredient",
+                        "I want meat"
+                    ]
+                },
+                {
+                    "name": "VegetablesIntent",
+                    "slots": [],
+                    "samples": [
+                        "Vegetables",
+                        "I want vegetables as main course ingredient",
+                        "I want vegetables"
+                    ]
+                },
+                {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 }
