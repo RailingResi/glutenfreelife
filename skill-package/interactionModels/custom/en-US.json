@@ -19,7 +19,16 @@
                     "name": "GlutenfreeLifeIntent",
                     "slots": [],
                     "samples": [
-                        "I want to get information about gluten intolerance"
+                        "I want to get information about gluten intolerance",
+                        "I want information"
+                    ]
+                },
+                {
+                    "name": "RestaurantIntent",
+                    "slots": [],
+                    "samples": [
+                        "I want to eat out",
+                        "I want to get some food"
                     ]
                 },
                 {
