@@ -21,7 +21,7 @@ const GlutenfreeLifeIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GlutenfreeLifeIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hello World Franceska!';
+        const speakOutput = 'Gluten is a protein in cereals such as wheat, barley, and rye. A person with gluten intolerance or sensitivity may experience pain and bloating after eating foods that contain gluten! For more information please consult the internet';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')

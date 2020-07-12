@@ -19,16 +19,7 @@
                     "name": "GlutenfreeLifeIntent",
                     "slots": [],
                     "samples": [
-                        "hello",
-                        "how are you",
-                        "say hi world",
-                        "say hi",
-                        "hi",
-                        "say hello world",
-                        "say hello",
-                        "Hallo Franceska",
-                        "Hallo Theresa"
-
+                        "I want to get information about gluten intolerance"
                     ]
                 },
                 {
