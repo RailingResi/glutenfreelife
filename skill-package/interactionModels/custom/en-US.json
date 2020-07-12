@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "hello world",
+            "invocationName": "glutenfree life",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -16,7 +16,7 @@
                     "samples": []
                 },
                 {
-                    "name": "HelloWorldIntent",
+                    "name": "GlutenfreeLifeIntent",
                     "slots": [],
                     "samples": [
                         "hello",
