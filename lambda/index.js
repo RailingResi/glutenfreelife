@@ -50,8 +50,8 @@ const RecipeIntentHandler = {
         const speakOutput = 'Which main ingredient do you want to cook with? Meat? Fish or Vegetables?';
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .listen('Which main course do you want?')
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            //.listen('Which main course do you want?')
+            .reprompt('Which main ingredient do you want to cook with? Meat? Fish or Vegetables?')
             .getResponse();
     }
 };
@@ -115,7 +115,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = 'Goodbye, see you next time!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
