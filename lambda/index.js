@@ -75,7 +75,7 @@ const FishIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FishIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
+        handlerInput.attributesManager.getSessionAttributes(sessionAttributes);
         if (sessionAttributes.openSession === "chooseMainIngredient") {
 
             const speakOutput = randomPhrases(fishRecipes);
@@ -94,7 +94,7 @@ const MeatIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'MeatIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
+        handlerInput.attributesManager.getSessionAttributes(sessionAttributes);
         if (sessionAttributes.openSession === "chooseMainIngredient") {
             const speakOutput = randomPhrases(meatRecipes);
             return handlerInput.responseBuilder
@@ -113,7 +113,7 @@ const VegetablesIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'VegetablesIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
+        handlerInput.attributesManager.getSessionAttributes(sessionAttributes);
         if (sessionAttributes.openSession === "chooseMainIngredient") {
             const speakOutput = randomPhrases(vegetablesRecipes);
             return handlerInput.responseBuilder
