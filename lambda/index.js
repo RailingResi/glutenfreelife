@@ -56,9 +56,7 @@ const RecipeIntentHandler = {
     handle(handlerInput) {
 
         const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-        sessionAttributes.recipe = recipe;
-
-        sessionAttributes.openSession("chooseMainIngredient");
+        sessionAttributes.openSession = "chooseMainIngredient";
 
         handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
@@ -86,6 +84,11 @@ const FishIntentHandler = {
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
+        } else {
+            const speakOutput = "I am sorry but I do not know what you want me to do";
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
         }
     }
 };
@@ -105,7 +108,6 @@ const MeatIntentHandler = {
     }
 
 };
-
 
 const VegetablesIntentHandler = {
     canHandle(handlerInput) {
