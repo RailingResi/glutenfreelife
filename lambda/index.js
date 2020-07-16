@@ -99,12 +99,20 @@ const MeatIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'MeatIntent';
     },
-    handle(handlerInput) {
 
-        const speakOutput = randomPhrases(meatRecipes);
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .getResponse();
+    handle(handlerInput) {
+        const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+        if (sessionAttributes.openSession === "chooseMainIngredient") {
+            const speakOutput = randomPhrases(meatRecipes);
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }else{
+            const speakOutput = "I am sorry but I do not know what you want me to do";
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }
     }
 
 };
@@ -115,10 +123,18 @@ const VegetablesIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'VegetablesIntent';
     },
     handle(handlerInput) {
-        const speakOutput = randomPhrases(vegetablesRecipes);
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .getResponse();
+        const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+        if (sessionAttributes.openSession === "chooseMainIngredient") {
+            const speakOutput = randomPhrases(vegetablesRecipes);
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }else{
+            const speakOutput = "I am sorry but I do not know what you want me to do";
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }
     }
 };
 const HelpIntentHandler = {
