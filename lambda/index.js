@@ -54,16 +54,12 @@ const RecipeIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RecipeIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
-        sessionAttributes.recipe = recipe;
-        sessionAttributes.openSession = "chooseMainIngredient";
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
         const speakOutput = 'Which main ingredient do you want to cook with? Meat? Fish or Vegetables?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .reprompt('Which main ingredient do you want to cook with? Meat? Fish or Vegetables?')
+            .reprompt('Are you still thinking about it? Which ingredient would you like to coo with? Meat? Fish? or Vegetables?')
             .getResponse();
     }
 };
@@ -75,15 +71,12 @@ const FishIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FishIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.getSessionAttributes(sessionAttributes);
-        if (sessionAttributes.openSession === "chooseMainIngredient") {
 
-            const speakOutput = randomPhrases(fishRecipes);
-            return handlerInput.responseBuilder
-                .speak(speakOutput)
-                //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-                .getResponse();
-        }
+        const speakOutput = randomPhrases(fishRecipes);
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
     }
 };
 
@@ -94,14 +87,12 @@ const MeatIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'MeatIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.getSessionAttributes(sessionAttributes);
-        if (sessionAttributes.openSession === "chooseMainIngredient") {
-            const speakOutput = randomPhrases(meatRecipes);
-            return handlerInput.responseBuilder
-                .speak(speakOutput)
-                //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-                .getResponse();
-        }
+
+        const speakOutput = randomPhrases(meatRecipes);
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
     }
 
 };
@@ -113,22 +104,12 @@ const VegetablesIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'VegetablesIntent';
     },
     handle(handlerInput) {
-        handlerInput.attributesManager.getSessionAttributes(sessionAttributes);
-        if (sessionAttributes.openSession === "chooseMainIngredient") {
             const speakOutput = randomPhrases(vegetablesRecipes);
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
                 .getResponse();
-        } else {
-            const speakOutput = " I am sorry, do you want to cook by yourself, get information about gluten intolerance or go out for eat?";
-            return handlerInput.responseBuilder
-                .speak(speakOutput)
-                .reprompt('I am sorry, do you want to cook by yourself, get information about gluten intolerance or go out for eat?')
-                .getResponse();
-
         }
-    }
 };
 const HelpIntentHandler = {
     canHandle(handlerInput) {
