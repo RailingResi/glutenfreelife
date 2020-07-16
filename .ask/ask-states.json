@@ -9,8 +9,8 @@
               "iamRole": "arn:aws:iam::516535208406:role/ask-lambda-glutenfreelife-1594488694782",
               "lambda": {
                 "arn": "arn:aws:lambda:eu-west-1:516535208406:function:ask-glutenfreelife-default-default-1594488707703",
-                "lastModified": "2020-07-11T18:08:02.695+0000",
-                "revisionId": "db1971c9-ebb8-4d3a-9b78-13b9b70fd20a"
+                "lastModified": "2020-07-16T19:52:59.961+0000",
+                "revisionId": "3b4b49cb-ca4d-44ab-bf1a-fc9972bd87a6"
               }
             }
           }
@@ -18,11 +18,11 @@
       },
       "skillId": "amzn1.ask.skill.99aeb77e-adad-4482-9555-c713e5316845",
       "skillMetadata": {
-        "lastDeployHash": "drJ6C6nJnpc8IhpBkyVX/iDv9jg="
+        "lastDeployHash": "ZYKpjcjT2pAyQlWhmJZgpG3C0tA="
       },
       "code": {
         "default": {
-          "lastDeployHash": "VczTbtF4E86R4CB8ZTaqShe+x08="
+          "lastDeployHash": "y6mgMNkcvOVFxKw2MZYgzRuZxeI="
         }
       }
     }

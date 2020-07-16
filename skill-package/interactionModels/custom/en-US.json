@@ -5,47 +5,93 @@
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
-                    "samples": []
+                    "samples": [
+                        "Good night",
+                        "stop",
+                        "I am tired"
+                    ]
                 },
                 {
                     "name": "AMAZON.HelpIntent",
-                    "samples": []
+                    "samples": [
+                        "I have no idea",
+                        "I need help",
+                        "can you help me",
+                        "what",
+                        "äääm",
+                        "I don't understand"
+                    ]
                 },
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": [
                         "Bye",
                         "See you",
-                        "Thanks"
+                        "Thanks",
+                        "I am done",
+                        "I am finished"
                     ]
                 },
                 {
                     "name": "GlutenfreeLifeIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "information",
+                            "type": "information"
+                        }
+                    ],
                     "samples": [
                         "I want to get information about gluten intolerance",
-                        "I want information",
+                        "I want {information}",
                         "Information",
                         "Info",
-                        "I want Info"
+                        "I want Info",
+                        "I am to lazy to google"
                     ]
                 },
                 {
                     "name": "RestaurantIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "eatout",
+                            "type": "eatout"
+                        },
+                        {
+                            "name": "hungry",
+                            "type": "hungry"
+                        },
+                        {
+                            "name": "restaurant",
+                            "type": "restaurant",
+                            "samples": [
+                                "I want to go to a {restaurant}",
+                                "to a {restaurant}",
+                                "{restaurant}"
+                            ]
+                        }
+                    ],
                     "samples": [
-                        "I want to eat out",
+                        "I want to {eatout} in a {restaurant}",
+                        "I want to {eatout}",
+                        "I want to go to a {restaurant}",
                         "I want to get some food",
                         "food",
-                        "restaurants"
+                        "restaurants",
+                        "I am {hungry}",
+                        "I am {hungry} for a {restaurant}"
                     ]
                 },
                 {
                     "name": "RecipeIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "cook",
+                            "type": "cook"
+                        }
+                    ],
                     "samples": [
                         "I want to cook by myself",
-                        "I want to cook",
+                        "I want to {cook}",
                         "for cooking"
                     ]
                 },
@@ -81,8 +127,218 @@
                     "samples": []
                 }
             ],
-            "types": []
-        }
+            "types": [
+                {
+                    "name": "cook",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "experiment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cut"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bake"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "brew"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "eatout",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "go for dinner"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "go into a restaurant"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "have a date"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enjoy a meal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "have something fancy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "not stay at home"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "information",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "gain knowledge"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "become clever"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "data"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "stop",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "tired"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "finished"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "done"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hungry",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "straving"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hungry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dying"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "empty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "restaurant",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "cafe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diner"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cafeteria"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tearoom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "wirt"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "RestaurantIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "eatout",
+                            "type": "eatout",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "hungry",
+                            "type": "hungry",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "restaurant",
+                            "type": "restaurant",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1119111695286.68515130519"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1119111695286.68515130519",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where do you want to go?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to cook by yourself or go to a restaurant?"
+                    }
+                ]
+            }
+        ]
     }
-  }
-  
+}

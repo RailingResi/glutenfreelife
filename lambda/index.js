@@ -29,26 +29,27 @@ const GlutenfreeLifeIntentHandler = {
         const speakOutput = 'Gluten is a protein in cereals such as wheat, barley, and rye. A person with gluten intolerance or sensitivity may experience pain and bloating after eating foods that contain gluten! For more information please consult the internet';
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
 const RestaurantIntentHandler = {
     canHandle(handlerInput) {
+        console.log('sarted canhandle RestaurantIntentHandler')
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RestaurantIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RestaurantIntent'
+            && handlerInput.requestEnvelope.request.dialogState == 'COMPLETED';
     },
     handle(handlerInput) {
+        console.log('sarted handle RestaurantIntentHandler')
         const speakOutput = 'There are several Restaurants in your range. You could go to Restaurant zum Wohl, Pizzeria da Marco, The Green Garden. They all offer gluten-free food';
+
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .addDelegateDirective()
             .getResponse();
     }
 };
 const RecipeIntentHandler = {
-
-
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RecipeIntent';
@@ -85,7 +86,7 @@ const FishIntentHandler = {
                 .speak(speakOutput)
                 .getResponse();
         } else {
-            const speakOutput = "I am sorry but I do not know what you want me to do";
+            const speakOutput = "I am sorry but I do not know what you want me to do?";
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .reprompt(speakOutput)
