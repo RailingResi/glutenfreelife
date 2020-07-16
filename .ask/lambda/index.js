@@ -8,20 +8,85 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+        const speakOutput = 'Welcome at glutenfree life. Do you want to eat out, cook by yourself or get information about gluten intolerance?';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
             .getResponse();
     }
 };
-const HelloWorldIntentHandler = {
+const GlutenfreeLifeIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GlutenfreeLifeIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hello World Franceska!';
+        const speakOutput = 'Gluten is a protein in cereals such as wheat, barley, and rye. A person with gluten intolerance or sensitivity may experience pain and bloating after eating foods that contain gluten! For more information please consult the internet';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+const RestaurantIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RestaurantIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'There are several Restaurants in your range. You could go to Restaurant zum Wohl, Pizzeria da Marco, The Green Garden. They all offer gluten-free food';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+const RecipeIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RecipeIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Which main ingredient do you want to cook with? Meat? Fish or Vegetables?';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt('Which main ingredient do you want to cook with? Meat? Fish or Vegetables?')
+            .getResponse();
+    }
+};
+const FishIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FishIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'I would suggest roasted salmon with parsley potatoes. Therefore you need: Salmon, Potatoes, Parsil, olive oil, salt and lemon.';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+const MeatIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'MeatIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'I would suggest Thai chicken curry with pineapple. Therefore you need: Chickenbreast, Pineapples, carrots, ginger, Coconut milk and curry paste.';
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+const VegetablesIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'VegetablesIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'I would suggest fried rice. Therefore you need: Rice, glutenfree soy sauce, carrots, zucchini, bean sprouts, olive oil, salt and peanuts';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -49,7 +114,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = 'Goodbye, see you next time!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
@@ -108,7 +173,12 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HelloWorldIntentHandler,
+        GlutenfreeLifeIntentHandler,
+        RestaurantIntentHandler,
+        RecipeIntentHandler,
+        FishIntentHandler,
+        MeatIntentHandler,
+        VegetablesIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,

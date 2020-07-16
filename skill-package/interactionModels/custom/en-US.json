@@ -20,7 +20,10 @@
                     "slots": [],
                     "samples": [
                         "I want to get information about gluten intolerance",
-                        "I want information"
+                        "I want information",
+                        "Information",
+                        "Info",
+                        "I want Info"
                     ]
                 },
                 {
@@ -28,7 +31,9 @@
                     "slots": [],
                     "samples": [
                         "I want to eat out",
-                        "I want to get some food"
+                        "I want to get some food",
+                        "food",
+                        "restaurants"
                     ]
                 },
                 {
@@ -36,7 +41,8 @@
                     "slots": [],
                     "samples": [
                         "I want to cook by myself",
-                        "I want to cook"
+                        "I want to cook",
+                        "for cooking"
                     ]
                 },
                 {
