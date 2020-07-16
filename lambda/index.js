@@ -88,6 +88,7 @@ const FishIntentHandler = {
             const speakOutput = "I am sorry but I do not know what you want me to do";
             return handlerInput.responseBuilder
                 .speak(speakOutput)
+                .reprompt(speakOutput)
                 .getResponse();
         }
     }
@@ -111,6 +112,7 @@ const MeatIntentHandler = {
             const speakOutput = "I am sorry but I do not know what you want me to do";
             return handlerInput.responseBuilder
                 .speak(speakOutput)
+                .reprompt(speakOutput)
                 .getResponse();
         }
     }
@@ -133,6 +135,7 @@ const VegetablesIntentHandler = {
             const speakOutput = "I am sorry but I do not know what you want me to do";
             return handlerInput.responseBuilder
                 .speak(speakOutput)
+                .reprompt(speakOutput)
                 .getResponse();
         }
     }
@@ -143,7 +146,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = 'I am happy to help you! In the glutenfree life app you can choose between information, cook by yourself and eat out.';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
