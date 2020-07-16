@@ -55,16 +55,24 @@ const RecipeIntentHandler = {
     },
     handle(handlerInput) {
 
+        const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+        sessionAttributes.recipe = recipe;
+
+        sessionAttributes.openSession("chooseMainIngredient");
+
+        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
+
         const speakOutput = 'Which main ingredient do you want to cook with? Meat? Fish or Vegetables?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .reprompt('Are you still thinking about it? Which ingredient would you like to coo with? Meat? Fish? or Vegetables?')
+            .reprompt('Are you still thinking about it? Which ingredient would you like to cook with? Meat? Fish? or Vegetables?')
             .getResponse();
     }
 };
 
 const FishIntentHandler = {
+
 
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -72,11 +80,13 @@ const FishIntentHandler = {
     },
     handle(handlerInput) {
 
-        const speakOutput = randomPhrases(fishRecipes);
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
+        const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+        if (sessionAttributes.openSession === "chooseMainIngredient") {
+            const speakOutput = randomPhrases(fishRecipes);
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }
     }
 };
 
@@ -91,7 +101,6 @@ const MeatIntentHandler = {
         const speakOutput = randomPhrases(meatRecipes);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 
@@ -104,12 +113,11 @@ const VegetablesIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'VegetablesIntent';
     },
     handle(handlerInput) {
-            const speakOutput = randomPhrases(vegetablesRecipes);
-            return handlerInput.responseBuilder
-                .speak(speakOutput)
-                //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-                .getResponse();
-        }
+        const speakOutput = randomPhrases(vegetablesRecipes);
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .getResponse();
+    }
 };
 const HelpIntentHandler = {
     canHandle(handlerInput) {
